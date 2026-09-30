@@ -1,0 +1,175 @@
+cv.<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donamal's Profile</title>
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* 상단 소개 영역 (Navy Background) */
+        header {
+            background-color: #1a2a6c;
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .profile-icon {
+            font-size: 5rem;
+            margin-bottom: 15px;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* 본문 영역 (Bright Background) */
+        main {
+            max-width: 600px;
+            margin: -50px auto 60px;
+            padding: 40px 30px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #1a2a6c;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e0e0e0;
+            margin-left: 15px;
+        }
+
+        /* 리스트 스타일 */
+        .info-list {
+            list-style: none;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .emoji-bullet {
+            margin-right: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* 목표 영역 스타일 */
+        .goal-card {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .goal-card p {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #1a2a6c;
+            font-style: italic;
+        }
+
+        /* 반응형 디자인 (스마트폰 최적화) */
+        @media (max-width: 480px) {
+            header {
+                padding: 60px 20px;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+            main {
+                margin: -30px 15px 40px;
+                padding: 30px 20px;
+            }
+            .goal-card p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="profile-icon">👤</span>
+        <h1>도나말</h1>
+        <p>경영학과 3학년</p>
+    </header>
+
+    <main>
+        <!-- 관심 분야 -->
+        <div class="section">
+            <h2 class="section-title">관심 분야</h2>
+            <ul class="info-list">
+                <li class="info-item"><span class="emoji-bullet">⚽</span> Sports</li>
+                <li class="info-item"><span class="emoji-bullet">📢</span> Marketing</li>
+                <li class="info-item"><span class="emoji-bullet">📊</span> Management</li>
+            </ul>
+        </div>
+
+        <!-- 좋아하는 것 -->
+        <div class="section">
+            <h2 class="section-title">좋아하는 것</h2>
+            <ul class="info-list">
+                <li class="info-item"><span class="emoji-bullet">🥩</span> 고기</li>
+                <li class="info-item"><span class="emoji-bullet">🍺</span> 술</li>
+                <li class="info-item"><span class="emoji-bullet">🎮</span> Video Games</li>
+            </ul>
+        </div>
+
+        <!-- 목표 -->
+        <div class="section" style="margin-bottom: 0;">
+            <h2 class="section-title">나의 목표</h2>
+            <div class="goal-card">
+                <p>"I wanna be cool"</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
