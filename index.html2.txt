@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>혜택온 - 편의점 구독 서비스</title>
+    <style>
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; line-height: 1.6; color: #333; background-color: #f8f9fa; }
+        
+        /* Layout */
+        .container { width: 100%; max-width: 480px; margin: 0 auto; background: #fff; overflow: hidden; }
+        section { padding: 40px 20px; }
+
+        /* 1. 상단 소개 (남색 배경) */
+        .hero { background-color: #001f3f; color: #ffffff; text-align: center; padding: 60px 20px; }
+        .hero h1 { font-size: 2rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; }
+
+        /* 2. 특징 3칸 */
+        .features { display: flex; flex-direction: column; gap: 20px; }
+        .feature-card { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #eee; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .feature-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #001f3f; }
+        .feature-card p { font-size: 0.95rem; color: #666; }
+
+        /* 3. 요금표 (추천 플랜 강조) */
+        .pricing { background-color: #f0f4f8; }
+        .pricing-title { text-align: center; margin-bottom: 30px; font-size: 1.5rem; font-weight: bold; }
+        .plan-container { display: flex; flex-direction: column; gap: 15px; }
+        .plan-card { background: #fff; padding: 25px; border-radius: 15px; text-align: center; border: 2px solid transparent; }
+        .plan-card.recommended { border: 2px solid #001f3f; position: relative; }
+        .plan-card.recommended::before { 
+            content: "추천"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: #001f3f; color: #fff; padding: 2px 12px; border-radius: 20px; font-size: 0.8rem;
+        }
+        .plan-name { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; }
+        .plan-price { font-size: 1.5rem; font-weight: bold; color: #001f3f; margin-bottom: 15px; }
+        .plan-desc { font-size: 0.9rem; color: #777; }
+
+        /* 4. FAQ (눌러서 펼침) */
+        .faq { background: #fff; }
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-question { 
+            width: 100%; padding: 15px 0; text-align: left; background: none; border: none;
+            font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between;
+        }
+        .faq-answer { 
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; 
+            font-size: 0.95rem; color: #666; padding-bottom: 0;
+        }
+        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 15px; }
+        .faq-item.active .faq-question::after { content: "▲"; }
+        .faq-question::after { content: "▼"; font-size: 0.8rem; }
+
+        /* 5. 신청 버튼 */
+        .cta-section { text-align: center; padding: 50px 20px; background: #fff; }
+        .btn-primary { 
+            display: block; width: 100%; padding: 18px; background: #001f3f; color: #fff; 
+            text-decoration: none; border-radius: 8px; font-size: 1.2rem; font-weight: bold;
+            border: none; cursor: pointer; transition: background 0.2s;
+        }
+        .btn-primary:active { background: #003366; }
+
+        /* Mobile Optimization */
+        @media (max-width: 480px) {
+            .container { max-width: 100%; }
+            section { padding: 30px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 상단 소개 -->
+    <section class="hero">
+        <h1>혜택온</h1>
+        <p>편의점 구독 서비스</p>
+    </section>
+
+    <!-- 특징 3칸 -->
+    <section class="features">
+        <div class="feature-card">
+            <h3>매일 즐기는 혜택</h3>
+            <p>편의점 상품을 매일 합리적인 가격으로 구독하세요.</p>
+        </div>
+        <div class="feature-card">
+            <h3>간편한 결제</h3>
+            <p>복잡한 과정 없이 한 번의 클릭으로 구독이 완료됩니다.</p>
+        </div>
+        <div class="feature-card">
+            <h3>맞춤형 추천</h3>
+            <p>당신의 취향에 딱 맞는 상품을 골라드려요.</p>
+        </div>
+    </section>
+
+    <!-- 요금표 -->
+    <section class="pricing">
+        <div class="pricing-title">요금 안내</div>
+        <div class="plan-container">
+            <div class="plan-card">
+                <div class="plan-name">베이직 플랜</div>
+                <div class="plan-price">월 4,900원</div>
+                <div class="plan-desc">필수 상품 중심의 경제적 구성</div>
+            </div>
+            <div class="plan-card recommended">
+                <div class="plan-name">프리미엄 플랜</div>
+                <div class="plan-price">월 9,900원</div>
+                <div class="plan-desc">모든 혜택을 누리는 가장 인기 있는 플랜</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-item">
+            <button class="faq-question">구독 해지는 언제든 가능한가요?</button>
+            <div class="faq-answer">네, 앱 내 설정에서 언제든지 자유롭게 해지하실 수 있습니다.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">어떤 편의점에서 사용할 수 있나요?</button>
+            <div class="faq-answer">제휴된 전국 주요 편의점에서 모두 사용 가능합니다.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">무료 체험 기간은 얼마나 되나요?</button>
+            <div class="faq-answer">신규 가입 시 첫 7일간 무료로 체험해 보실 수 있습니다.</div>
+        </div>
+    </section>
+
+    <!-- 신청 버튼 -->
+    <section class="cta-section">
+        <button class="btn-primary" onclick="handleApply()">무료 체험 시작하기</button>
+    </section>
+</div>
+
+<script>
+    // FAQ 펼치기 기능
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            faqItem.classList.toggle('active');
+        });
+    });
+
+    // 신청 버튼 클릭 이벤트
+    function handleApply() {
+        alert('신청 접수(데모)');
+    }
+</script>
+
+</body>
+</html>
